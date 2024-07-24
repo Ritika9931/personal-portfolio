@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="#header">
+        <div class="container">
+            <nav>
+                <h2>Developers </h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                 
+                </ul>
+            
+                
+            </nav>
+            <div class="header-text">
+                <p>Web Developer</p>
+                <h1>Hii, I am <span>Ritika</span> <br>From Patna.</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="about">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images .png" alt="">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>
+                   
+                    
+                    Hey there! I'm Ritika, an aspiring web developer eager to learn and grow in the world of tech. 
+                     I'm passionate about creating engaging web experiences.<br>
+                    I bring a solid foundation in HTML, CSS, and JavaScript, and I'm hungry to expand my skills in front-end and 
+                    back-end development. I thrive on challenges and collaboration, ready to dive into new projects with 
+                    enthusiasm and dedication.<br>
+                    I'm eager to gain hands-on experience and contribute to exciting projects. Let's team up and make some magic happen!
+                    
+                                     
+                    </p>
+
+                    
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="heading">
+        <h1>My Work</h1>
+    </div>
+   
+    <div class="image-container">
+        <div class="image-div">
+            <img src="img1.jpg" alt="Image 1">
+        </div>
+        <div class="image-div">
+            <img src="img2.jpg" alt="Image 2">
+        </div>
+        <div class="image-div">
+            <img src="img3.jpg" >
+            
+        </div>
+
+        <button type="submit" class="btn btn2">See More</button>
+    </div>
+
+
+    <div class="contact-sections">
+        <div class="contact-info">
+            <h1>Contact Me</h1>
+            <p>Address: Boring Road,Patna,Bihar</p>
+            <p>Phone:9931110011 </p>
+            <p>Email: kumarirtikak2000@gmail.com</p>
+            <a href="CV[1].pdf" download class="btn btn2">Download CV</a>
+            <a href=""class="btn btn2">Hire Me</a>
+        </div>
+        <div class="contact-form">
+
+            <form name="submit-to-google-sheet">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+        </div>
+    </div>
+
+    
+    <footer>
+        <p> Copyright @ Ritika. Made with by Developers.</p>
+    </footer>
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxeTHyrpA1I0oO7BpQkAJbPCHa8_N4yZOzBxl7iPq1DIvsbIfntUCMSBHKFfNde6NBP/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg") 
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>{
+                msg.innerHtml = "Message sent sucessfully"
+                setTimeout(function(){
+                    msg.innerHTML =""
+                },5000)
+            })
+            form.reset
+
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+
+
+
+   
+    
+</body>
+</html>
